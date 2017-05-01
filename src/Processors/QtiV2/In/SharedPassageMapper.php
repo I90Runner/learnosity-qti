@@ -190,7 +190,7 @@ class SharedPassageMapper
         // HACK: Pass the version and encoding to prevent libxml from decoding HTML entities (esp. &amp; which libxml borks at)
         // Only do this if it hasnt already been passed along in the xml string. Sometimes, we read from a file, and sometimes
         // we read from a block inside another file.
-        if (strpos($xml, '<?xml ') !== 0) {
+        if (strpos($xml, '<?xml ') === false) {
             $xml = '<?xml version="1.0" encoding="UTF-8">' . $xml;
         }
 
